@@ -76,20 +76,23 @@ class Bosl2AccessSyntaxMixin(_AccessSyntaxMixin):
     def skew(self, p=None, sxy=None, sxz=None, syx=None, syz=None, szx=None, szy=None, axy=None, axz=None, ayx=None, ayz=None, azx=None, azy=None, **kwargs):
         return self._get_std().skew(p, sxy, sxz, syx, syz, szx, szy, axy, axz, ayx, ayz, azx, azy, **kwargs)(self)
 
-    def position(self, _from=None, **kwargs):
-        return self._get_std().position(_from, **kwargs)(self)
+    def position(self, at=None, _from=None, **kwargs):
+        return self._get_std().position(at, _from, **kwargs)(self)
 
     def orient(self, anchor=None, spin=None, **kwargs):
         return self._get_std().orient(anchor, spin, **kwargs)(self)
 
-    def align(self, anchor=None, orient=None, spin=None, inside=None, **kwargs):
-        return self._get_std().align(anchor, orient, spin, inside, **kwargs)(self)
+    def align(self, anchor=None, align=None, inside=None, inset=None, shiftout=None, overlap=None, **kwargs):
+        return self._get_std().align(anchor, align, inside, inset, shiftout, overlap, **kwargs)(self)
 
-    def attach(self, _from=None, to=None, overlap=None, norot=None, **kwargs):
-        return self._get_std().attach(_from, to, overlap, norot, **kwargs)(self)
+    def attach(self, parent=None, child=None, overlap=None, align=None, spin=None, norot=None, inset=None, shiftout=None, inside=None, _from=None, to=None, **kwargs):
+        return self._get_std().attach(parent, child, overlap, align, spin, norot, inset, shiftout, inside, _from, to, **kwargs)(self)
 
     def tag(self, tag=None, **kwargs):
         return self._get_std().tag(tag, **kwargs)(self)
+
+    def tag_this(self, tag=None, **kwargs):
+        return self._get_std().tag_this(tag, **kwargs)(self)
 
     def force_tag(self, tag=None, **kwargs):
         return self._get_std().force_tag(tag, **kwargs)(self)
@@ -121,6 +124,9 @@ class Bosl2AccessSyntaxMixin(_AccessSyntaxMixin):
     def hide(self, tags=None, **kwargs):
         return self._get_std().hide(tags, **kwargs)(self)
 
+    def hide_this(self, **kwargs):
+        return self._get_std().hide_this(**kwargs)(self)
+
     def show_only(self, tags=None, **kwargs):
         return self._get_std().show_only(tags, **kwargs)(self)
 
@@ -151,8 +157,8 @@ class Bosl2AccessSyntaxMixin(_AccessSyntaxMixin):
     def corner_profile(self, corners=None, _except=None, r=None, d=None, convexity=None, **kwargs):
         return self._get_std().corner_profile(corners, _except, r, d, convexity, **kwargs)(self)
 
-    def attachable(self, anchor=None, spin=None, orient=None, size=None, size2=None, shift=None, r=None, r1=None, r2=None, d=None, d1=None, d2=None, l=None, h=None, vnf=None, path=None, region=None, extent=None, cp=None, offset=None, anchors=None, two_d=None, axis=None, override=None, geom=None, **kwargs):
-        return self._get_std().attachable(anchor, spin, orient, size, size2, shift, r, r1, r2, d, d1, d2, l, h, vnf, path, region, extent, cp, offset, anchors, two_d, axis, override, geom, **kwargs)(self)
+    def attachable(self, anchor=None, spin=None, orient=None, size=None, size2=None, shift=None, r=None, r1=None, r2=None, d=None, d1=None, d2=None, l=None, h=None, vnf=None, path=None, region=None, extent=None, cp=None, offset=None, anchors=None, two_d=None, axis=None, override=None, geom=None, expose_tags=None, keep_color=None, **kwargs):
+        return self._get_std().attachable(anchor, spin, orient, size, size2, shift, r, r1, r2, d, d1, d2, l, h, vnf, path, region, extent, cp, offset, anchors, two_d, axis, override, geom, expose_tags, keep_color, **kwargs)(self)
 
     def show_anchors(self, s=None, std=None, custom=None, **kwargs):
         return self._get_std().show_anchors(s, std, custom, **kwargs)(self)
@@ -174,33 +180,6 @@ class Bosl2AccessSyntaxMixin(_AccessSyntaxMixin):
 
     def frame_ref(self, s=None, opacity=None, **kwargs):
         return self._get_std().frame_ref(s, opacity, **kwargs)(self)
-
-    def bounding_box(self, excess=None, planar=None, **kwargs):
-        return self._get_std().bounding_box(excess, planar, **kwargs)(self)
-
-    def chain_hull(self, **kwargs):
-        return self._get_std().chain_hull(**kwargs)(self)
-
-    def path_extrude2d(self, path=None, caps=None, closed=None, s=None, convexity=None, **kwargs):
-        return self._get_std().path_extrude2d(path, caps, closed, s, convexity, **kwargs)(self)
-
-    def cylindrical_extrude(self, ir=None, _or=None, od=None, id=None, size=None, convexity=None, spin=None, orient=None, **kwargs):
-        return self._get_std().cylindrical_extrude(ir, _or, od, id, size, convexity, spin, orient, **kwargs)(self)
-
-    def extrude_from_to(self, pt1=None, pt2=None, convexity=None, twist=None, scale=None, slices=None, **kwargs):
-        return self._get_std().extrude_from_to(pt1, pt2, convexity, twist, scale, slices, **kwargs)(self)
-
-    def path_extrude(self, path=None, convexity=None, clipsize=None, **kwargs):
-        return self._get_std().path_extrude(path, convexity, clipsize, **kwargs)(self)
-
-    def minkowski_difference(self, planar=None, **kwargs):
-        return self._get_std().minkowski_difference(planar, **kwargs)(self)
-
-    def offset3d(self, r=None, size=None, convexity=None, **kwargs):
-        return self._get_std().offset3d(r, size, convexity, **kwargs)(self)
-
-    def round3d(self, r=None, _or=None, ir=None, size=None, **kwargs):
-        return self._get_std().round3d(r, _or, ir, size, **kwargs)(self)
 
     def move_copies(self, a=None, **kwargs):
         return self._get_std().move_copies(a, **kwargs)(self)

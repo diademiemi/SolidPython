@@ -79,16 +79,16 @@ class _path_line_intersection(_Bosl2Base):
        super().__init__("_path_line_intersection", {"path" : path, "line" : line, "ind" : ind, **kwargs})
 
 class _make_offset_polyhedron(_Bosl2Base):
-    def __init__(self, path=None, offsets=None, offset_type=None, flip_faces=None, quality=None, check_valid=None, offsetind=None, vertexcount=None, vertices=None, faces=None, **kwargs):
-       super().__init__("_make_offset_polyhedron", {"path" : path, "offsets" : offsets, "offset_type" : offset_type, "flip_faces" : flip_faces, "quality" : quality, "check_valid" : check_valid, "offsetind" : offsetind, "vertexcount" : vertexcount, "vertices" : vertices, "faces" : faces, **kwargs})
+    def __init__(self, path=None, offsets=None, offset_type=None, flip_faces=None, quality=None, check_valid=None, cap=None, offsetind=None, vertexcount=None, vertices=None, faces=None, **kwargs):
+       super().__init__("_make_offset_polyhedron", {"path" : path, "offsets" : offsets, "offset_type" : offset_type, "flip_faces" : flip_faces, "quality" : quality, "check_valid" : check_valid, "cap" : cap, "offsetind" : offsetind, "vertexcount" : vertexcount, "vertices" : vertices, "faces" : faces, **kwargs})
 
 class _struct_valid(_Bosl2Base):
     def __init__(self, spec=None, func=None, name=None, **kwargs):
        super().__init__("_struct_valid", {"spec" : spec, "func" : func, "name" : name, **kwargs})
 
 class offset_sweep(_Bosl2Base):
-    def __init__(self, path=None, height=None, bottom=None, top=None, h=None, l=None, length=None, offset=None, r=None, steps=None, quality=None, check_valid=None, extra=None, cut=None, chamfer_width=None, chamfer_height=None, joint=None, k=None, angle=None, **kwargs):
-       super().__init__("offset_sweep", {"path" : path, "height" : height, "bottom" : bottom, "top" : top, "h" : h, "l" : l, "length" : length, "offset" : offset, "r" : r, "steps" : steps, "quality" : quality, "check_valid" : check_valid, "extra" : extra, "cut" : cut, "chamfer_width" : chamfer_width, "chamfer_height" : chamfer_height, "joint" : joint, "k" : k, "angle" : angle, **kwargs})
+    def __init__(self, path=None, height=None, bottom=None, top=None, h=None, l=None, length=None, ends=None, bot=None, offset=None, r=None, steps=None, quality=None, check_valid=None, extra=None, caps=None, cut=None, chamfer_width=None, chamfer_height=None, joint=None, k=None, angle=None, anchor=None, orient=None, spin=None, atype=None, cp=None, _return_height=None, **kwargs):
+       super().__init__("offset_sweep", {"path" : path, "height" : height, "bottom" : bottom, "top" : top, "h" : h, "l" : l, "length" : length, "ends" : ends, "bot" : bot, "offset" : offset, "r" : r, "steps" : steps, "quality" : quality, "check_valid" : check_valid, "extra" : extra, "caps" : caps, "cut" : cut, "chamfer_width" : chamfer_width, "chamfer_height" : chamfer_height, "joint" : joint, "k" : k, "angle" : angle, "anchor" : anchor, "orient" : orient, "spin" : spin, "atype" : atype, "cp" : cp, "_return_height" : _return_height, **kwargs})
 
 class os_circle(_Bosl2Base):
     def __init__(self, r=None, cut=None, extra=None, check_valid=None, quality=None, steps=None, offset=None, **kwargs):
@@ -211,8 +211,8 @@ class offset_stroke(_Bosl2Base):
        super().__init__("offset_stroke", {"path" : path, "width" : width, "rounded" : rounded, "start" : start, "end" : end, "check_valid" : check_valid, "quality" : quality, "chamfer" : chamfer, "closed" : closed, "atype" : atype, "anchor" : anchor, "spin" : spin, "cp" : cp, **kwargs})
 
 class offset_sweep(_Bosl2Base):
-    def __init__(self, path=None, height=None, bottom=None, top=None, h=None, l=None, offset=None, r=None, steps=None, quality=None, check_valid=None, extra=None, cut=None, chamfer_width=None, chamfer_height=None, joint=None, k=None, angle=None, convexity=None, anchor=None, cp=None, spin=None, orient=None, atype=None, **kwargs):
-       super().__init__("offset_sweep", {"path" : path, "height" : height, "bottom" : bottom, "top" : top, "h" : h, "l" : l, "offset" : offset, "r" : r, "steps" : steps, "quality" : quality, "check_valid" : check_valid, "extra" : extra, "cut" : cut, "chamfer_width" : chamfer_width, "chamfer_height" : chamfer_height, "joint" : joint, "k" : k, "angle" : angle, "convexity" : convexity, "anchor" : anchor, "cp" : cp, "spin" : spin, "orient" : orient, "atype" : atype, **kwargs})
+    def __init__(self, path=None, height=None, bottom=None, top=None, h=None, l=None, length=None, ends=None, bot=None, offset=None, r=None, steps=None, quality=None, check_valid=None, extra=None, cut=None, chamfer_width=None, chamfer_height=None, joint=None, k=None, angle=None, convexity=None, anchor=None, cp=None, spin=None, orient=None, atype=None, **kwargs):
+       super().__init__("offset_sweep", {"path" : path, "height" : height, "bottom" : bottom, "top" : top, "h" : h, "l" : l, "length" : length, "ends" : ends, "bot" : bot, "offset" : offset, "r" : r, "steps" : steps, "quality" : quality, "check_valid" : check_valid, "extra" : extra, "cut" : cut, "chamfer_width" : chamfer_width, "chamfer_height" : chamfer_height, "joint" : joint, "k" : k, "angle" : angle, "convexity" : convexity, "anchor" : anchor, "cp" : cp, "spin" : spin, "orient" : orient, "atype" : atype, **kwargs})
 
 class convex_offset_extrude(_Bosl2Base):
     def __init__(self, height=None, bottom=None, top=None, h=None, l=None, length=None, offset=None, r=None, steps=None, extra=None, cut=None, chamfer_width=None, chamfer_height=None, joint=None, k=None, angle=None, convexity=None, thickness=None, **kwargs):

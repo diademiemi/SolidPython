@@ -127,6 +127,10 @@ class bezier_patch_normals(_Bosl2Base):
     def __init__(self, patch=None, u=None, v=None, **kwargs):
        super().__init__("bezier_patch_normals", {"patch" : patch, "u" : u, "v" : v, **kwargs})
 
+class bezier_sheet(_Bosl2Base):
+    def __init__(self, patch=None, thickness=None, splinesteps=None, style=None, **kwargs):
+       super().__init__("bezier_sheet", {"patch" : patch, "thickness" : thickness, "splinesteps" : splinesteps, "style" : style, **kwargs})
+
 class debug_bezier(_Bosl2Base):
     def __init__(self, bezpath=None, width=None, N=None, **kwargs):
        super().__init__("debug_bezier", {"bezpath" : bezpath, "width" : width, "N" : N, **kwargs})

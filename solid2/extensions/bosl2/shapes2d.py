@@ -11,8 +11,8 @@ class square(_Bosl2Base):
        super().__init__("square", {"size" : size, "center" : center, "anchor" : anchor, "spin" : spin, **kwargs})
 
 class rect(_Bosl2Base):
-    def __init__(self, size=None, rounding=None, chamfer=None, atype=None, anchor=None, spin=None, _return_override=None, **kwargs):
-       super().__init__("rect", {"size" : size, "rounding" : rounding, "chamfer" : chamfer, "atype" : atype, "anchor" : anchor, "spin" : spin, "_return_override" : _return_override, **kwargs})
+    def __init__(self, size=None, rounding=None, chamfer=None, atype=None, anchor=None, spin=None, _return_override=None, corner_flip=None, **kwargs):
+       super().__init__("rect", {"size" : size, "rounding" : rounding, "chamfer" : chamfer, "atype" : atype, "anchor" : anchor, "spin" : spin, "_return_override" : _return_override, "corner_flip" : corner_flip, **kwargs})
 
 class circle(_Bosl2Base):
     def __init__(self, r=None, d=None, points=None, corner=None, anchor=None, spin=None, **kwargs):
@@ -74,17 +74,25 @@ class egg(_Bosl2Base):
     def __init__(self, length=None, r1=None, r2=None, R=None, d1=None, d2=None, D=None, anchor=None, spin=None, **kwargs):
        super().__init__("egg", {"length" : length, "r1" : r1, "r2" : r2, "R" : R, "d1" : d1, "d2" : d2, "D" : D, "anchor" : anchor, "spin" : spin, **kwargs})
 
+class ring(_Bosl2Base):
+    def __init__(self, n=None, ring_width=None, r=None, r1=None, r2=None, angle=None, d=None, d1=None, d2=None, cp=None, points=None, corner=None, width=None, thickness=None, start=None, long=None, full=None, cw=None, ccw=None, **kwargs):
+       super().__init__("ring", {"n" : n, "ring_width" : ring_width, "r" : r, "r1" : r1, "r2" : r2, "angle" : angle, "d" : d, "d1" : d1, "d2" : d2, "cp" : cp, "points" : points, "corner" : corner, "width" : width, "thickness" : thickness, "start" : start, "long" : long, "full" : full, "cw" : cw, "ccw" : ccw, **kwargs})
+
 class glued_circles(_Bosl2Base):
     def __init__(self, r=None, spread=None, tangent=None, d=None, anchor=None, spin=None, **kwargs):
        super().__init__("glued_circles", {"r" : r, "spread" : spread, "tangent" : tangent, "d" : d, "anchor" : anchor, "spin" : spin, **kwargs})
 
-class _superformula(_Bosl2Base):
-    def __init__(self, theta=None, m1=None, m2=None, n1=None, n2=None, n3=None, a=None, b=None, **kwargs):
-       super().__init__("_superformula", {"theta" : theta, "m1" : m1, "m2" : m2, "n1" : n1, "n2" : n2, "n3" : n3, "a" : a, "b" : b, **kwargs})
+class keyhole(_Bosl2Base):
+    def __init__(self, l=None, r1=None, r2=None, shoulder_r=None, d1=None, d2=None, length=None, anchor=None, spin=None, **kwargs):
+       super().__init__("keyhole", {"l" : l, "r1" : r1, "r2" : r2, "shoulder_r" : shoulder_r, "d1" : d1, "d2" : d2, "length" : length, "anchor" : anchor, "spin" : spin, **kwargs})
 
 class supershape(_Bosl2Base):
     def __init__(self, step=None, n=None, m1=None, m2=None, n1=None, n2=None, n3=None, a=None, b=None, r=None, d=None, anchor=None, spin=None, atype=None, **kwargs):
        super().__init__("supershape", {"step" : step, "n" : n, "m1" : m1, "m2" : m2, "n1" : n1, "n2" : n2, "n3" : n3, "a" : a, "b" : b, "r" : r, "d" : d, "anchor" : anchor, "spin" : spin, "atype" : atype, **kwargs})
+
+class _superformula(_Bosl2Base):
+    def __init__(self, theta=None, m1=None, m2=None, n1=None, n2=None, n3=None, a=None, b=None, **kwargs):
+       super().__init__("_superformula", {"theta" : theta, "m1" : m1, "m2" : m2, "n1" : n1, "n2" : n2, "n3" : n3, "a" : a, "b" : b, **kwargs})
 
 class reuleaux_polygon(_Bosl2Base):
     def __init__(self, n=None, r=None, d=None, anchor=None, spin=None, **kwargs):
@@ -95,8 +103,8 @@ class square(_Bosl2Base):
        super().__init__("square", {"size" : size, "center" : center, "anchor" : anchor, "spin" : spin, **kwargs})
 
 class rect(_Bosl2Base):
-    def __init__(self, size=None, rounding=None, atype=None, chamfer=None, anchor=None, spin=None, **kwargs):
-       super().__init__("rect", {"size" : size, "rounding" : rounding, "atype" : atype, "chamfer" : chamfer, "anchor" : anchor, "spin" : spin, **kwargs})
+    def __init__(self, size=None, rounding=None, atype=None, chamfer=None, anchor=None, spin=None, corner_flip=None, **kwargs):
+       super().__init__("rect", {"size" : size, "rounding" : rounding, "atype" : atype, "chamfer" : chamfer, "anchor" : anchor, "spin" : spin, "corner_flip" : corner_flip, **kwargs})
 
 class circle(_Bosl2Base):
     def __init__(self, r=None, d=None, points=None, corner=None, anchor=None, spin=None, **kwargs):
@@ -146,9 +154,17 @@ class egg(_Bosl2Base):
     def __init__(self, length=None, r1=None, r2=None, R=None, d1=None, d2=None, D=None, anchor=None, spin=None, **kwargs):
        super().__init__("egg", {"length" : length, "r1" : r1, "r2" : r2, "R" : R, "d1" : d1, "d2" : d2, "D" : D, "anchor" : anchor, "spin" : spin, **kwargs})
 
+class ring(_Bosl2Base):
+    def __init__(self, n=None, ring_width=None, r=None, r1=None, r2=None, angle=None, d=None, d1=None, d2=None, cp=None, points=None, corner=None, width=None, thickness=None, start=None, long=None, full=None, cw=None, ccw=None, anchor=None, spin=None, **kwargs):
+       super().__init__("ring", {"n" : n, "ring_width" : ring_width, "r" : r, "r1" : r1, "r2" : r2, "angle" : angle, "d" : d, "d1" : d1, "d2" : d2, "cp" : cp, "points" : points, "corner" : corner, "width" : width, "thickness" : thickness, "start" : start, "long" : long, "full" : full, "cw" : cw, "ccw" : ccw, "anchor" : anchor, "spin" : spin, **kwargs})
+
 class glued_circles(_Bosl2Base):
     def __init__(self, r=None, spread=None, tangent=None, d=None, anchor=None, spin=None, **kwargs):
        super().__init__("glued_circles", {"r" : r, "spread" : spread, "tangent" : tangent, "d" : d, "anchor" : anchor, "spin" : spin, **kwargs})
+
+class keyhole(_Bosl2Base):
+    def __init__(self, l=None, r1=None, r2=None, shoulder_r=None, d1=None, d2=None, length=None, anchor=None, spin=None, **kwargs):
+       super().__init__("keyhole", {"l" : l, "r1" : r1, "r2" : r2, "shoulder_r" : shoulder_r, "d1" : d1, "d2" : d2, "length" : length, "anchor" : anchor, "spin" : spin, **kwargs})
 
 class supershape(_Bosl2Base):
     def __init__(self, step=None, n=None, m1=None, m2=None, n1=None, n2=None, n3=None, a=None, b=None, r=None, d=None, anchor=None, spin=None, atype=None, **kwargs):

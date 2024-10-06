@@ -154,29 +154,13 @@ class cumsum(_Bosl2Base):
     def __init__(self, v=None, **kwargs):
        super().__init__("cumsum", {"v" : v, **kwargs})
 
-class _cumsum(_Bosl2Base):
-    def __init__(self, v=None, _i=None, _acc=None, **kwargs):
-       super().__init__("_cumsum", {"v" : v, "_i" : _i, "_acc" : _acc, **kwargs})
-
 class product(_Bosl2Base):
-    def __init__(self, v=None, **kwargs):
-       super().__init__("product", {"v" : v, **kwargs})
-
-class _product(_Bosl2Base):
-    def __init__(self, v=None, i=None, _tot=None, **kwargs):
-       super().__init__("_product", {"v" : v, "i" : i, "_tot" : _tot, **kwargs})
+    def __init__(self, list=None, right=None, **kwargs):
+       super().__init__("product", {"list" : list, "right" : right, **kwargs})
 
 class cumprod(_Bosl2Base):
     def __init__(self, list=None, right=None, **kwargs):
        super().__init__("cumprod", {"list" : list, "right" : right, **kwargs})
-
-class _cumprod(_Bosl2Base):
-    def __init__(self, v=None, right=None, _i=None, _acc=None, **kwargs):
-       super().__init__("_cumprod", {"v" : v, "right" : right, "_i" : _i, "_acc" : _acc, **kwargs})
-
-class _cumprod_vec(_Bosl2Base):
-    def __init__(self, v=None, _i=None, _acc=None, **kwargs):
-       super().__init__("_cumprod_vec", {"v" : v, "_i" : _i, "_acc" : _acc, **kwargs})
 
 class convolve(_Bosl2Base):
     def __init__(self, p=None, q=None, **kwargs):

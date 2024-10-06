@@ -126,11 +126,23 @@ class exclusive_or(_Bosl2Base):
     def __init__(self, regions=None, b=None, c=None, eps=None, **kwargs):
        super().__init__("exclusive_or", {"regions" : regions, "b" : b, "c" : c, "eps" : eps, **kwargs})
 
+class hull_region(_Bosl2Base):
+    def __init__(self, region=None, **kwargs):
+       super().__init__("hull_region", {"region" : region, **kwargs})
+
 class region(_Bosl2Base):
     def __init__(self, r=None, anchor=None, spin=None, cp=None, atype=None, **kwargs):
        super().__init__("region", {"r" : r, "anchor" : anchor, "spin" : spin, "cp" : cp, "atype" : atype, **kwargs})
 
+class debug_region(_Bosl2Base):
+    def __init__(self, region=None, vertices=None, edges=None, convexity=None, size=None, **kwargs):
+       super().__init__("debug_region", {"region" : region, "vertices" : vertices, "edges" : edges, "convexity" : convexity, "size" : size, **kwargs})
+
 class exclusive_or(_Bosl2Base):
     def __init__(self, **kwargs):
        super().__init__("exclusive_or", {**kwargs})
+
+class hull_region(_Bosl2Base):
+    def __init__(self, region=None, **kwargs):
+       super().__init__("hull_region", {"region" : region, **kwargs})
 

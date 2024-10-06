@@ -3,7 +3,7 @@ from .version import *
 from .constants import *
 from .transforms import *
 from .distributors import *
-from .mutators import *
+from .miscellaneous import *
 from .color import *
 from .attachments import *
 from .shapes3d import *
