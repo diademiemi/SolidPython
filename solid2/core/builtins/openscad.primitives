@@ -35,7 +35,7 @@ module children(index=default, vector=default, range=default);
 
 module import_stl(file, origin=default, convexity=default, layer=default);
 module import_dxf(file, origin=default, convexity=default, layer=default);
-module import(file, origin=default, convexity=default, layer=default);
+module import(file, origin=default, convexity=default, layer=default, center=default);
 
 module assign();
 module multmatrix(m=default);

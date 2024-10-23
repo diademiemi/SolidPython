@@ -671,10 +671,10 @@ class import_(_OpenSCADObject):
     :type convexity: int
     """
 
-    def __init__(self, file: PathStr, origin: P2 = (0, 0), convexity: int = None, layer: int = None) -> None:
+    def __init__(self, file: PathStr, origin: P2 = (0, 0), convexity: int = None, layer: int = None, center=False) -> None:
         super().__init__('import',
                          {'file': _Path(file).as_posix(), 'origin': origin,
-                          'convexity': convexity, 'layer': layer})
+                          'convexity': convexity, 'layer': layer, 'center': center})
 
 class _import(import_): pass
 
